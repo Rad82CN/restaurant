@@ -4,6 +4,7 @@
 <?php
 
     $app = new App;
+    $app->validateSession();
 
     // if the user clicks on the register button
     if(isset($_POST['submit'])) {
@@ -15,9 +16,9 @@
         $query = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
         
         $arr = [
-            'username' => $username,
-            'email' => $email,
-            'password' => $password
+            ':username' => $username,
+            ':email' => $email,
+            ':password' => $password
         ];
 
         $path = "login.php";

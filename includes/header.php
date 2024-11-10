@@ -1,5 +1,7 @@
 <?php
 
+    $app = new App;
+    $app->startingSession();
     define("APPURL", "http://localhost/restaurant")
 
 ?>
@@ -64,13 +66,29 @@
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="menu.html" class="nav-item nav-link">Menu</a>
-                        <a href="cart.html" class="nav-item nav-link"><i class="fa-sharp fa-solid fa-cart-shopping"></i>Cart</a>
-
-                      
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        <a href="login.html" class="nav-item nav-link">Login</a>
-                        <a href="register.html" class="nav-item nav-link">Register</a>
-                    </div>
-                   
+
+                        <?php if(isset($_SESSION['username'])) : ?> <!-- if the user is logged in (the session has username) -->
+                        
+                        <a href="cart.html" class="nav-item nav-link"><i class="fa-sharp fa-solid fa-cart-shopping"></i>Cart</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php echo $_SESSION['username']; ?>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="<?php echo APPURL; ?>/auth/logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+
+                        <?php else : ?>
+
+                        <a href="<?php echo APPURL; ?>/auth/login.php" class="nav-item nav-link">Login</a>
+                        <a href="<?php echo APPURL; ?>/auth/register.php" class="nav-item nav-link">Register</a>
+
+                        <?php endif ; ?>
+                    </div>        
                 </div>
             </nav>

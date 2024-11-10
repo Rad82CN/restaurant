@@ -17,9 +17,9 @@ class App {
     public function connect() {
         $this->link = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname."", $this->user, $this->pass);
 
-        if($this->link) {
-            echo "db connected";
-        }
+        // if($this->link) {
+        //     echo "db connected";
+        // }
     }
 
     // CRUD operations (Create, Read, Update, Delete)
@@ -113,14 +113,18 @@ class App {
         $login_user = $this->link->query($query);
         $login_user->execute();
 
-        $fetch = $login_user->fetch(PDO::FETCH_OBJ);
+        $fetch = $login_user->fetch(PDO::FETCH_ASSOC); // fetch as associative array
 
         // password verification
         if($login_user->rowCount() > 0) {
-            if(password_verify($data["password"], $fetch["password"])) {
+            if(password_verify($data['password'], $fetch['password'])) {
                 // start session vars
+                $_SESSION['user_id'] = $fetch['id'];
+                $_SESSION['email'] = $fetch['email'];
+                $_SESSION['username'] = $fetch['username'];
                 
                 header("location: ".$path."");
+
             }
         }
     }
@@ -131,9 +135,9 @@ class App {
     }
 
     // validate session
-    public function validateSession($path) {
-        if(isset($_SESSION['id'])) {
-            header("location: ".$path."");
+    public function validateSession() {
+        if(isset($_SESSION['user_id'])) {
+            echo "<script>window.location.href='".APPURL."'</script>";
         }
     }
 }
