@@ -61,7 +61,7 @@ class App {
             $insert_record = $this->link->prepare($query);
             $insert_record->execute($arr);
 
-            header("location: ".$path."");
+            echo "<script>window.location.href='".$path."'</script>";
         }
     }
 
@@ -139,6 +139,14 @@ class App {
         if(isset($_SESSION['user_id'])) {
             echo "<script>window.location.href='".APPURL."'</script>";
         }
+    }
+
+    // validating cart
+    public function validateCart($q) {
+        $row = $this->link->query($q);
+        $row->execute();
+        $count = $row->rowCount();
+        return $count;
     }
 }
 

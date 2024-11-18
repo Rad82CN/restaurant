@@ -62,7 +62,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="<?php echo APPURL; ?>" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="menu.html" class="nav-item nav-link">Menu</a>
@@ -70,7 +70,7 @@
 
                         <?php if(isset($_SESSION['username'])) : ?> <!-- if the user is logged in (the session has username) -->
                         
-                        <a href="cart.html" class="nav-item nav-link"><i class="fa-sharp fa-solid fa-cart-shopping"></i>Cart</a>
+                        <a href="<?php echo APPURL; ?>/food/cart.php" class="nav-item nav-link"><i class="fa-sharp fa-solid fa-cart-shopping"></i>Cart</a>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php echo $_SESSION['username']; ?>
