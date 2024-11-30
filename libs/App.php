@@ -84,7 +84,7 @@ class App {
         $delete_record = $this->link->query($query);
         $delete_record->execute();
 
-        header("location: ".$path."");
+        echo "<script>window.location.href='".$path."'</script>";
     }
 
     public function validate($arr) {
@@ -134,10 +134,17 @@ class App {
         session_start();
     }
 
-    // validate session
+    // validates session so if the user is logged in, they wont access login/register page again
     public function validateSession() {
         if(isset($_SESSION['user_id'])) {
             echo "<script>window.location.href='".APPURL."'</script>";
+        }
+    }
+
+    //validates if thee user is logged in or not
+    static public function validateLogin() {
+        if(is_null($_SESSION['user_id'])) {
+            echo "<script>window.location.href='".APPURL."/auth/login.php'</script>";
         }
     }
 

@@ -63,10 +63,10 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="<?php echo APPURL; ?>" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="menu.html" class="nav-item nav-link">Menu</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="<?php echo APPURL; ?>/about.php" class="nav-item nav-link">About</a>
+                        <a href="<?php echo APPURL; ?>/service.php" class="nav-item nav-link">Service</a>
+                        <a href="<?php echo APPURL; ?>/menu.php" class="nav-item nav-link">Menu</a>
+                        <a href="<?php echo APPURL; ?>/contact.php" class="nav-item nav-link">Contact</a>
 
                         <?php if(isset($_SESSION['username'])) : ?> <!-- if the user is logged in (the session has username) -->
                         
@@ -76,8 +76,8 @@
                                 <?php echo $_SESSION['username']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="<?php echo APPURL; ?>/users/bookings.php">Bookings</a></li>
+                                <li><a class="dropdown-item" href="<?php echo APPURL; ?>/users/orders.php">Orders</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo APPURL; ?>/auth/logout.php">Logout</a></li>
                             </ul>

@@ -55,10 +55,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="index.php" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="menu.html" class="nav-item nav-link">Menu</a>
+                        <a href="menu.php" class="nav-item nav-link">Menu</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
@@ -78,7 +78,7 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
                         </ol>
@@ -103,44 +103,45 @@
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                         <h1 class="text-white mb-4">Book A Table Online</h1>
-                        <form>
+                        <form method="POST" action="booking-table.php">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                        <input name="date_time" type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
                                         <label for="datetime">Date & Time</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select" id="select1">
-                                          <option value="1">People 1</option>
-                                          <option value="2">People 2</option>
-                                          <option value="3">People 3</option>
+                                        <select name="people" class="form-select" id="select1">
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
                                         </select>
-                                        <label for="select1">No Of People</label>
-                                      </div>
+                                        <label for="select1">Number Of People</label>
+                                    </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                        <textarea name="special_request" class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
                                         <label for="message">Special Request</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                    <button name="submit" type="submit" class="btn btn-primary w-100 py-3">Book Now</button>
                                 </div>
                             </div>
                         </form>

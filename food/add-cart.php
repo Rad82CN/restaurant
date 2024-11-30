@@ -3,7 +3,7 @@
 <?php require "../includes/header.php"; ?>
 <?php
 
-    // if there is an item with that id
+    // if you did get the id from URL
     if(isset($_GET['id'])) {
         $app = new App;
         $id = $_GET['id'];
@@ -25,7 +25,8 @@
             $price = $_POST['price'];
             $user_id = $_SESSION['user_id'];
 
-            $query = "INSERT INTO cart (item_id, name, image, price, user_id) VALUES (:item_id, :name, :image, :price, :user_id)";
+            $query = "INSERT INTO cart (item_id, name, image, price, user_id) 
+            VALUES (:item_id, :name, :image, :price, :user_id)";
             
             $arr = [
                 ':item_id' => $item_id,
@@ -39,6 +40,8 @@
 
             $app->insert($query, $arr, $path);
         }
+    } else {
+        echo "<script>window.location.href='".APPURL."/404.php'</script>";
     }
 
 ?>

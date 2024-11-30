@@ -3,13 +3,21 @@
 <?php require "../includes/header.php"; ?>
 <?php
 
-  if(isset($_SESSION['user_id'])) {
+  $app = new App;
+  $app->validateLogin();
 
-    $app = new App;
-    $user_id = $_SESSION['user_id'];
-    $query = "SELECT * FROM cart WHERE user_id='$user_id'";
-    $cart_items = $app->selectAll($query);
-
+  $user_id = $_SESSION['user_id'];
+  $query = "SELECT * FROM cart WHERE user_id='$user_id'";
+  $cart_items = $app->selectAll($query);
+  
+  $cart_price = $app->selectOne("SELECT SUM(price) AS summed_price FROM cart WHERE user_id='$_SESSION[user_id]'");
+  
+  if(isset($_POST['submit'])) {
+        
+    $_SESSION['total_price'] = $cart_price->summed_price;
+  
+    echo "<script>window.location.href='checkout.php'</script>";
+  
   }
 
 ?>
@@ -43,19 +51,25 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach($cart_items as $cart_item) : ?>
-                          <tr>
-                            <th><img src="<?php echo APPURL; ?>/img/<?php echo $cart_item->image; ?>" alt="" style="width: 50px; height: 50px;"></th>
-                            <td><?php echo $cart_item->name; ?></td>
-                            <td>$<?php echo $cart_item->price; ?></td>
-                            <td><a href="<?php echo APPURL; ?>/food/delete-cart-item?id=<?php $cart_item->id ?>" class="btn btn-danger text-white">delete</td>
-                          </tr>
-                          <?php endforeach; ?>
+                          <?php if($cart_price->summed_price > 0) : ?>
+                            <?php foreach($cart_items as $cart_item) : ?>
+                              <tr>
+                                <th><img src="<?php echo APPURL; ?>/img/<?php echo $cart_item->image; ?>" alt="" style="width: 50px; height: 50px;"></th>
+                                <td><?php echo $cart_item->name; ?></td>
+                                <td>$<?php echo $cart_item->price; ?></td>
+                                <td><a href="<?php echo APPURL; ?>/food/delete-cart-item.php?id=<?php echo $cart_item->id; ?>" class="btn btn-danger text-white">delete</td>
+                              </tr>
+                            <?php endforeach; ?>
+                          <?php else : ?>
+                            <p>Your cart is empty</p>
+                          <?php endif; ?>
                         </tbody>
                       </table>
                       <div class="position-relative mx-auto" style="max-width: 400px; padding-left: 679px;">
-                        <p style="margin-left: -7px;" class="w-19 py-3 ps-4 pe-5" type="text"> Total: $100</p>
-                        <button type="button" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Checkout</button>
+                        <p style="margin-left: -7px;" class="w-19 py-3 ps-4 pe-5" type="text"> Total: $<?php echo $cart_price->summed_price ?></p>
+                        <form method="POST" action="cart.php">
+                          <button name="submit" type="submit" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Checkout</button>
+                        </form>
                     </div>
                 </div>
             </div>
