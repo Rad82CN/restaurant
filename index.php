@@ -3,17 +3,18 @@
 <?php require "includes/header.php"; ?>
 <?php
 
-    $query = "SELECT * FROM foods WHERE meal_id=1";
     $app = new App;
+    $query = "SELECT * FROM foods WHERE meal_id=1";
     $meals_1 = $app->selectAll($query);
 
     $query = "SELECT * FROM foods WHERE meal_id=2";
-    $app = new App;
     $meals_2 = $app->selectAll($query);
 
     $query = "SELECT * FROM foods WHERE meal_id=3";
-    $app = new App;
     $meals_3 = $app->selectAll($query);
+
+    $query = "SELECT * FROM reviews";
+    $reviews = $app->selectAll($query);
 
 ?>
 
@@ -395,50 +396,19 @@
                     <h1 class="mb-5">Our Clients Say!!!</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                    <?php foreach($reviews as $review) : ?>
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            <p><?php echo $review->review; ?></p>
+                            <div class="d-flex align-items-center">
+                                <!-- <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;"> -->
+                                <div class="ps-3">
+                                    <h5 class="mb-1"><?php echo $review->username; ?></h5>
+                                    <small>Profession</small>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

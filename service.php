@@ -7,9 +7,8 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Services</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Service</li>
+                            <li class="breadcrumb-item"><a href="<?php echo APPURL; ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="service.php">Service</a></li>
                         </ol>
                     </nav>
                 </div>

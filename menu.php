@@ -23,8 +23,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
                             <li class="breadcrumb-item"><a href="<?php echo APPURL; ?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                            <li class="breadcrumb-item"><a href="menu.php">Menu</a></li>
                         </ol>
                     </nav>
                 </div>

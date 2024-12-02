@@ -141,10 +141,24 @@ class App {
         }
     }
 
+    // validates admin session so if the user is logged in, they wont access login/register page again
+    public function validateSessionAdmin() {
+        if(isset($_SESSION['user_id'])) {
+            echo "<script>window.location.href='".ADMINURL."'</script>";
+        }
+    }
+
     //validates if thee user is logged in or not
     static public function validateLogin() {
         if(is_null($_SESSION['user_id'])) {
             echo "<script>window.location.href='".APPURL."/auth/login.php'</script>";
+        }
+    }
+
+    //validates if thee user is logged in or not
+    static public function validateLoginAdmin() {
+        if(is_null($_SESSION['user_id'])) {
+            echo "<script>window.location.href='".ADMINURL."/admins/login-admins.php'</script>";
         }
     }
 

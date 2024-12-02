@@ -12,7 +12,7 @@
         $date_time = $_POST['date_time'];
         $people = $_POST['people'];
         $special_request = $_POST['special_request'];
-        $status = "pending";
+        $status = "Pending";
         $user_id = $_SESSION['user_id'];
 
         // if the date and time is valid

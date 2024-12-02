@@ -3,10 +3,12 @@
 <?php require "../includes/header.php"; ?>
 <?php
 
+    $app = new App;
+    $app->validateLogin();
+
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
-            
-        $app = new App;
+
         $query = "DELETE FROM cart WHERE id='$id'";
         $path = 'cart.php';
 

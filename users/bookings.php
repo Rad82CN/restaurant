@@ -55,7 +55,7 @@
                                     <td><?php echo $booking->people; ?></td>
                                     <td><?php echo $booking->special_request; ?></td>
                                     <td><?php echo $booking->status; ?></td>
-                                    <?php if($booking->status == "pending") : ?>
+                                    <?php if($booking->status == "Pending") : ?>
                                         <td><a href="<?php echo APPURL; ?>/users/delete-booking.php?id=<?php echo $booking->id; ?>" class="btn btn-danger text-white">Delete</td>
                                     <?php else : ?>
                                         <td><a href="<?php echo APPURL; ?>/users/review.php" class="btn btn-success text-white">Review Us</td>
