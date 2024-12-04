@@ -13,13 +13,13 @@
 
             $status = $_POST['status'];
             
-            $query = "UPDATE orders SET status=:status WHERE id='$id'";
+            $query = "UPDATE bookings SET status=:status WHERE id='$id'";
 
             $arr = [
                 ":status" => $status
             ];
 
-            $path = "show-orders.php";
+            $path = "show-bookings.php";
 
             $app->update($query, $arr, $path);
 
@@ -40,6 +40,7 @@
                             <select name="status" class="form-select  form-control" aria-label="Default select example">
                                 <option selected>Pending</option>
                                 <option value="Confirmed">Confirmed</option>
+                                <option value="Done">Done</option>
                             </select>
                         </div>
 

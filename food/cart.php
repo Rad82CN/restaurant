@@ -54,7 +54,7 @@
                           <?php if($cart_price->summed_price > 0) : ?>
                             <?php foreach($cart_items as $cart_item) : ?>
                               <tr>
-                                <th><img src="<?php echo APPURL; ?>/img/<?php echo $cart_item->image; ?>" alt="" style="width: 50px; height: 50px;"></th>
+                                <th><img src="<?php echo APPIMAGES; ?>/<?php echo $cart_item->image; ?>" alt="" style="width: 50px; height: 50px;"></th>
                                 <td><?php echo $cart_item->name; ?></td>
                                 <td>$<?php echo $cart_item->price; ?></td>
                                 <td><a href="<?php echo APPURL; ?>/food/delete-cart-item.php?id=<?php echo $cart_item->id; ?>" class="btn btn-danger text-white">delete</td>

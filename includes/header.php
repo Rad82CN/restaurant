@@ -2,7 +2,9 @@
 
     $app = new App;
     $app->startingSession();
-    define("APPURL", "http://localhost/restaurant")
+    
+    define("APPURL", "http://localhost/restaurant");
+    define("APPIMAGES", "http://localhost/restaurant/admin-panel/foods-admins/foods-images");
 
 ?>
 <!DOCTYPE html>

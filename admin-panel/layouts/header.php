@@ -4,6 +4,7 @@
     $app->startingSession();
     
     define("ADMINURL", "http://localhost/restaurant/admin-panel");
+    define("APPIMAGES", "http://localhost/restaurant/admin-panel/foods-admins/foods-images");
 
 ?>
 <!DOCTYPE html>

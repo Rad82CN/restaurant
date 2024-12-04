@@ -178,7 +178,7 @@
                                 <?php foreach($meals_1 as $meal_1) : ?>
                                     <div class="col-lg-6">
                                         <div class="d-flex align-items-center">
-                                            <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_1->image; ?>" alt="" style="width: 80px;">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="<?php echo APPIMAGES; ?>/<?php echo $meal_1->image; ?>" alt="" style="width: 80px;">
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span><?php echo $meal_1->name; ?></span>
@@ -197,7 +197,7 @@
                                 <?php foreach($meals_2 as $meal_2) : ?>
                                     <div class="col-lg-6">
                                         <div class="d-flex align-items-center">
-                                            <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_2->image; ?>" alt="" style="width: 80px;">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="<?php echo APPIMAGES; ?>/<?php echo $meal_2->image; ?>" alt="" style="width: 80px;">
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span><?php echo $meal_2->name; ?></span>
@@ -216,7 +216,7 @@
                                 <?php foreach($meals_3 as $meal_3) : ?>
                                     <div class="col-lg-6">
                                         <div class="d-flex align-items-center">
-                                            <img class="flex-shrink-0 img-fluid rounded" src="img/<?php echo $meal_3->image; ?>" alt="" style="width: 80px;">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="<?php echo APPIMAGES; ?>/<?php echo $meal_3->image; ?>" alt="" style="width: 80px;">
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span><?php echo $meal_3->name; ?></span>

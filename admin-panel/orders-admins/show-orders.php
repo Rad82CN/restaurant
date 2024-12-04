@@ -41,9 +41,7 @@
                       <td><?php echo $order->email; ?></td>
                       <td><?php echo $order->town; ?></td>
                       <td><?php echo $order->country; ?></td>
-                      <td>
-                        <?php echo $order->zipcode; ?>
-                      </td>
+                      <td><?php echo $order->zipcode; ?></td>
                       <td><?php echo $order->phone_number; ?></td>
                       <td><?php echo $order->address; ?></td>
                       <td>$<?php echo $order->total_price; ?></td>

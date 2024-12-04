@@ -170,4 +170,3 @@ class App {
         return $count;
     }
 }
-

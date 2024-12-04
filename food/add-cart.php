@@ -68,7 +68,7 @@
                     <div class="col-md-6">
                         <div class="row g-3">
                             <div class="col-12 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?php echo APPURL; ?>/img/<?php echo $one->image; ?>">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="<?php echo APPIMAGES; ?>/<?php echo $one->image; ?>">
                             </div>
 
                         </div>
@@ -88,10 +88,12 @@
                             <input type="hidden" name="name" value="<?php echo $one->name; ?>">
                             <input type="hidden" name="image" value="<?php echo $one->image; ?>">
                             <input type="hidden" name="price" value="<?php echo $one->price; ?>">
-                            <?php if($count > 0) : ?>
-                                <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2" disabled>Added to Cart</button>
-                            <?php else : ?>
-                                <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
+                            <?php if(isset($_SESSION['user_id'])) : ?>
+                                <?php if($count > 0) : ?>
+                                    <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2" disabled>Added to Cart</button>
+                                <?php else : ?>
+                                    <button name="submit" type="submit" class="btn btn-primary py-3 px-5 mt-2">Add to Cart</button>
+                                <?php endif; ?>
                             <?php endif; ?>
                         </form>
                     </div>
